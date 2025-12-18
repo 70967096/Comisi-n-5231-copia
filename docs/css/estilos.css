@@ -107,200 +107,96 @@ h1 {
 
 /********************services section******************/
 .Title--Services{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Botones dentro del carrito detallado */
-.btn-qty {
-    background-color: #BBAB8C;
-    border: none;
-    padding: 2px 8px;
-    margin: 0 5px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 3px;
-}.info-extra.visible {
+display: block;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.Services--Services {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.text--text {
     display: block;
-}
-/* Descripción que se muestra/oculta */
-.info-extra {
-    display: none;
-    font-size: 14px;
-    color: #555;
-    background: #eee;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    width: 100%;
-}
-.product--section img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover; /* Para que la foto no se deforme */
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-.product--section:hover {
-    transform: scale(1.02);
-}
-/* Tarjeta individual (ajustada a tus medidas originales) */
-.product--section {
-    flex: 0 1 250px; 
-    background-color: #FDF7E4;
-    border: 1px solid #BBAB8C;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s;
-}
-/* Contenedor de productos en cuadrícula flexible */
- .products--section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
-}#Products {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    flex-wrap: wrap;
-}/***********************************JS*******************************/.derechos--reservados {
-    display: flex;
-    justify-content: center;
-    background-color: #DED0B6;
-    margin: 0;
-    padding: 20px;
-}.iframe--section {
-    display: flex;
-    justify-content: center;
-    margin: 40px;
-    background-color: #DED0B6;
-    margin: 0;
-    padding: 20px;
-}
-.iframe--section iframe {}form textarea {
-    width: 250px;
-    height: 80px;
-    resize: none;
-}.button--section {
-    display: flex;
-    justify-content: space-around;
-}
-form input, textarea {
-    width: 100%;
-}form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 290px;
-    padding: 20px;
-    border: 2px solid #BBAB8C;
-    border-radius: 2%;
-    background-color: #BBAB8C;
-    
-}.contact--section:focus {
-}.contact--section {
-    display: flex;
-    flex-direction: column;
     text-align: center;
+    max-width: 400p ;
+    width: 600px;
+    
+}
+
+.img--service img{
+    width: 250px;
+    
+}
+.img--service22 img {
     width: 360px;
 }
-.contacts--section {
+
+/********************products section******************/
+#Products {
     display: flex;
     justify-content: center;
-    gap: 200px;
+    text-align: center;
+    background-color: #DED0B6;
+    margin: 20px 0 0 0;
     padding: 40px;
-    background-color: #DED0B6;
-    flex-wrap: wrap;
 }
-#Contacts {
+.products----section {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap ;
     background-color: #DED0B6;
-    margin: 40px 0 0 0;
-    height: 100px;
-    padding: 40px;    
+    padding: 40px;
 }
-/************************************************Footer********************************************************/.user--section p {
-    font-weight: bold;
-}.user--section img {
-    width: 40px;
-    border: 2px solid #dbdbdb;
-    border-radius: 20px;
-}.user--section {
+
+.product--section {
+    width: 200px;
+    height: 460px;
+    border: 2px solid #BBAB8C;
+    background-color: #BBAB8C;
     display: flex;
-    justify-content: center;
-    gap: 20px;
-}.card--section:hover {
+    flex-direction: column;
+    margin: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s, box-shadow 0.2s;
+}
+
+.product--section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-}.card--section {
+    box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.2);
+}
+
+.text--section {
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+/********************review section******************/
+#Review {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cards--section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card--section {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -318,71 +214,173 @@ form input, textarea {
 
     transition: transform 0.5s, box-shadow 0.5s;
         
-}.cards--section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    flex-wrap: wrap;
-    gap: 20px;
-}#Review {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
 }
-/********************review section******************/.text--section {
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    text-align: center;
-}.product--section:hover {
+
+.card--section:hover {
     transform: translateY(-5px);
-    box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.2);
-}.product--section {
-    width: 200px;
-    height: 460px;
-    border: 2px solid #BBAB8C;
-    background-color: #BBAB8C;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.user--section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.user--section img {
+    width: 40px;
+    border: 2px solid #dbdbdb;
+    border-radius: 20px;
+}
+
+.user--section p {
+    font-weight: bold;
+}
+
+/************************************************Footer********************************************************/
+
+#Contacts {
+    display: flex;
+    justify-content: center;
+    background-color: #DED0B6;
+    margin: 40px 0 0 0;
+    height: 100px;
+    padding: 40px;    
+}
+
+.contacts--section {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    padding: 40px;
+    background-color: #DED0B6;
+    flex-wrap: wrap;
+}
+
+.contact--section {
     display: flex;
     flex-direction: column;
-    margin: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.4s, box-shadow 0.2s;
-}#Products {
-    display: flex;
-    justify-content: center;
     text-align: center;
-    background-color: #DED0B6;
-    margin: 20px 0 0 0;
-    padding: 40px;
+    width: 360px;
 }
-.products----section {
+
+.contact--section:focus {
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 290px;
+    padding: 20px;
+    border: 2px solid #BBAB8C;
+    border-radius: 2%;
+    background-color: #BBAB8C;
+    
+}
+
+form input, textarea {
+    width: 100%;
+}
+
+.button--section {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap ;
-    background-color: #DED0B6;
-    padding: 40px;
-}/********************products section******************/.img--service22 img {
-    width: 360px;
-}.img--service img{
+}
+
+form textarea {
     width: 250px;
-    
-}.text--text {
-    display: block;
-    text-align: center;
-    max-width: 400p ;
-    width: 600px;
-    
-}.Services--Services {
+    height: 80px;
+    resize: none;
+}
+
+.iframe--section {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 80px;
-    padding: 40px;
+    margin: 40px;
+    background-color: #DED0B6;
+    margin: 0;
+    padding: 20px;
+}
+.iframe--section iframe {}
+
+.derechos--reservados {
+    display: flex;
+    justify-content: center;
+    background-color: #DED0B6;
+    margin: 0;
+    padding: 20px;
+}
+
+
+
+/***********************************JS*******************************/
+
+#Products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
     flex-wrap: wrap;
-}ndisplay: block;
+}
+/* Contenedor de productos en cuadrícula flexible */
+.products--section {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+/* Tarjeta individual (ajustada a tus medidas originales) */
+.product--section {
+    flex: 0 1 250px; 
+    background-color: #FDF7E4;
+    border: 1px solid #BBAB8C;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    transition: transform 0.2s;
+}
+
+.product--section:hover {
+    transform: scale(1.02);
+}
+
+.product--section img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; /* Para que la foto no se deforme */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Descripción que se muestra/oculta */
+.info-extra {
+    display: none;
+    font-size: 14px;
+    color: #555;
+    background: #eee;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.info-extra.visible {
+    display: block;
+}
+
+/* Botones dentro del carrito detallado */
+.btn-qty {
+    background-color: #BBAB8C;
+    border: none;
+    padding: 2px 8px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
 }
