@@ -3,7 +3,7 @@ console.log("hola mundo.......")
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Datos de productos (Puse fotos de ejemplo, cámbialas por tus rutas ./img/...)
+    ////////////////////////////////////// 1. Datos de productos 
     const productos = [
         {
             id: 1, name: "Esmalte de uñas Condessa",
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contadorIcono = document.getElementById("contador-carrito");
     const totalPrecio = document.getElementById("total-precio");
 
-    // 2. Función para dibujar los productos
+    ////////////////////////// 2. Función para dibujar los productos
     function mostrarCatalogo() {
         if (!contenedor) return;
         contenedor.innerHTML = "";
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="product--section--text">
                     <h4>${p.name}</h4>
                     <p><strong>$${p.precio}</strong></p>
-                    <button class="btn-desc" data-id="${p.id}" style="cursor:pointer">Ver Info</button>
+                    <button class="btn-desc" data-id="${p.id}" style="cursor:pointer">Descripcion</button>
                     <div id="info-${p.id}" class="info-extra">${p.desc}</div>
                     <br>
                     <button class="btn-add-final" data-id="${p.id}" style="background-color:#BBAB8C; padding:10px; border:none; cursor:pointer; font-weight:bold;">Agregar al Carrito</button>
@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Manejador de Clicks Global (Evita errores de consola)
+    ////////////////////////// 3. Manejador de Clicks Global (Evita errores de consola)
     document.addEventListener('click', (e) => {
-        // Botón Agregar
+        ////////////// Botón Agregar
         if (e.target.classList.contains('btn-add-final')) {
             const id = parseInt(e.target.dataset.id);
             const existe = carrito.find(item => item.id === id);
@@ -72,13 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
             actualizarCarrito();
         }
 
-        // Botón Ver Descripción
+        //////////////// Botón Ver Descripción
         if (e.target.classList.contains('btn-desc')) {
             const id = e.target.dataset.id;
             document.getElementById(`info-${id}`).classList.toggle('visible');
         }
 
-        // Botones + y - en el carrito
+        /////////////// Botones + y - en el carrito
         if (e.target.classList.contains('btn-mas')) {
             const id = parseInt(e.target.dataset.id);
             carrito.find(i => i.id === id).cantidad++;
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Función de actualización (LocalStorage y DOM)
+    ////////////////////////////// 4. Función de actualización (LocalStorage y DOM)
     function actualizarCarrito() {
         if (!listaCarrito) return;
         listaCarrito.innerHTML = "";
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem("carrito_final", JSON.stringify(carrito));
     }
 
-    // Botón Vaciar
+    //////////////// Botón Vaciar
     const btnVaciar = document.getElementById("vaciar-carrito");
     if (btnVaciar) {
         btnVaciar.onclick = () => {
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Ejecución inicial
+    /////////////////////////////////// Ejecución inicial
     mostrarCatalogo();
     actualizarCarrito();
 });
