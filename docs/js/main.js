@@ -3,7 +3,7 @@ console.log("hola mundo.......")
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Datos de productos (Puse fotos de ejemplo, cámbialas por tus rutas ./img...)
+    // 1. Datos de productos (Puse fotos de ejemplo, cámbialas por tus rutas ./img/...)
     const productos = [
         {
             id: 1, name: "Esmalte de uñas Condessa",
@@ -37,39 +37,73 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Función para dibujar los productos
     function mostrarCatalogo() {
         if (!contenedor) return;
+        contenedor.innerHTML = "";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Ejecución inicial
-    mostrarCatalogo();
-    actualizarCarrito();
-});
-    // Botón Vaciar
-    const btnVaciar = document.getElementById("vaciar-carrito");
-    if (btnVaciar) {
-        btnVaciar.onclick = () => {
-            carrito = [];
-            actualizarCarrito();
-        };
+        productos.forEach(p => {
+            const art = document.createElement("article");
+            art.className = "product--section";
+            art.innerHTML = `
+                <img src="${p.img}" alt="${p.name}">
+                <div class="product--section--text">
+                    <h4>${p.name}</h4>
+                    <p><strong>$${p.precio}</strong></p>
+                    <button class="btn-desc" data-id="${p.id}" style="cursor:pointer">Ver Info</button>
+                    <div id="info-${p.id}" class="info-extra">${p.desc}</div>
+                    <br>
+                    <button class="btn-add-final" data-id="${p.id}" style="background-color:#BBAB8C; padding:10px; border:none; cursor:pointer; font-weight:bold;">Agregar al Carrito</button>
+                </div>
+            `;
+            contenedor.appendChild(art);
+        });
     }
-        contadorIcono.innerText = cantidadIcono;
-        totalPrecio.innerText = total;
-        localStorage.setItem("carrito_final", JSON.stringify(carrito));
-    }        
+
+    // 3. Manejador de Clicks Global (Evita errores de consola)
+    document.addEventListener('click', (e) => {
+        // Botón Agregar
+        if (e.target.classList.contains('btn-add-final')) {
+            const id = parseInt(e.target.dataset.id);
+            const existe = carrito.find(item => item.id === id);
+            if (existe) {
+                existe.cantidad++;
+            } else {
+                const prod = productos.find(p => p.id === id);
+                carrito.push({ ...prod, cantidad: 1 });
+            }
+            actualizarCarrito();
+        }
+
+        // Botón Ver Descripción
+        if (e.target.classList.contains('btn-desc')) {
+            const id = e.target.dataset.id;
+            document.getElementById(`info-${id}`).classList.toggle('visible');
+        }
+
+        // Botones + y - en el carrito
+        if (e.target.classList.contains('btn-mas')) {
+            const id = parseInt(e.target.dataset.id);
+            carrito.find(i => i.id === id).cantidad++;
+            actualizarCarrito();
+        }
+
+        if (e.target.classList.contains('btn-menos')) {
+            const id = parseInt(e.target.dataset.id);
+            const item = carrito.find(i => i.id === id);
+            item.cantidad--;
+            if (item.cantidad < 1) {
+                carrito = carrito.filter(i => i.id !== id);
+            }
+            actualizarCarrito();
+        }
+    });
+
+    // 4. Función de actualización (LocalStorage y DOM)
+    function actualizarCarrito() {
+        if (!listaCarrito) return;
+        listaCarrito.innerHTML = "";
+
+        let total = 0;
+        let cantidadIcono = 0;
+
         if (carrito.length === 0) {
             listaCarrito.innerHTML = '<p style="text-align: center; color: #888;">El carrito está vacío</p>';
         } else {
@@ -91,57 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 listaCarrito.appendChild(div);
             });
-        }        
-        let total = 0;
-        let cantidadIcono = 0;    function actualizarCarrito() {
-        if (!listaCarrito) return;
-        listaCarrito.innerHTML = "";    // 4. Función de actualización (LocalStorage y DOM)
-        if (e.target.classList.contains('btn-menos')) {
-            const id = parseInt(e.target.dataset.id);
-            const item = carrito.find(i => i.id === id);
-            item.cantidad--;
-            if (item.cantidad < 1) {
-                carrito = carrito.filter(i => i.id !== id);
-            }
-            actualizarCarrito();
         }
-    });
-        // Botones + y - en el carrito
-        if (e.target.classList.contains('btn-mas')) {
-            const id = parseInt(e.target.dataset.id);
-            carrito.find(i => i.id === id).cantidad++;
+
+        contadorIcono.innerText = cantidadIcono;
+        totalPrecio.innerText = total;
+        localStorage.setItem("carrito_final", JSON.stringify(carrito));
+    }
+
+    // Botón Vaciar
+    const btnVaciar = document.getElementById("vaciar-carrito");
+    if (btnVaciar) {
+        btnVaciar.onclick = () => {
+            carrito = [];
             actualizarCarrito();
-        }
-        // Botón Ver Descripción
-        if (e.target.classList.contains('btn-desc')) {
-            const id = e.target.dataset.id;
-            document.getElementById(`info-${id}`).classList.toggle('visible');
-        }    document.addEventListener('click', (e) => {
-        // Botón Agregar
-        if (e.target.classList.contains('btn-add-final')) {
-            const id = parseInt(e.target.dataset.id);
-            const existe = carrito.find(item => item.id === id);
-            if (existe) {
-                existe.cantidad++;
-            } else {
-                const prod = productos.find(p => p.id === id);
-                carrito.push({ ...prod, cantidad: 1 });
-            }
-            actualizarCarrito();
-        }    // 3. Manejador de Clicks Global (Evita errores de consola)        productos.forEach(p => {
-            const art = document.createElement("article");
-            art.className = "product--section";
-            art.innerHTML = `
-                <img src="${p.img}" alt="${p.name}">
-                <div class="product--section--text">
-                    <h4>${p.name}</h4>
-                    <p><strong>$${p.precio}</strong></p>
-                    <button class="btn-desc" data-id="${p.id}" style="cursor:pointer">Ver Info</button>
-                    <div id="info-${p.id}" class="info-extra">${p.desc}</div>
-                    <br>
-                    <button class="btn-add-final" data-id="${p.id}" style="background-color:#BBAB8C; padding:10px; border:none; cursor:pointer; font-weight:bold;">Agregar al Carrito</button>
-                </div>
-            `;
-            contenedor.appendChild(art);
-        });
-    }                contenedor.innerHTML = "";
+        };
+    }
+
+    // Ejecución inicial
+    mostrarCatalogo();
+    actualizarCarrito();
+});
